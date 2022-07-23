@@ -1,0 +1,10 @@
+{
+	"name": "coding-dojo-movies",
+	"version": "1.0.0",
+	"description": "Interview MERN Application",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Jose Tannous",
+	"license": "ISC"
+}
