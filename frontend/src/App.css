@@ -6,6 +6,12 @@ body,
 	width: 100%;
 }
 
+/* GLOBAL */
+.app .wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
 /* UTILITIES */
 :root {
 	--color-primary: tomato;
@@ -146,6 +152,14 @@ body,
 	display: flex;
 	gap: 1rem;
 }
+.Table tbody tr > td:first-child {
+	display: flex;
+	justify-content: space-between;
+}
+.Table .icon {
+	height: 18px;
+	cursor: pointer;
+}
 
 /* FORM COMPONENT  */
 .Form {
@@ -177,11 +191,9 @@ body,
 .Form label {
 	width: 35%;
 	margin: 0.5rem 1rem;
-	text-align: right;
+	text-align: left;
 }
-.Form .btn {
-	margin: 0 1rem;
-}
+
 .Form .mt-2 {
 	margin-left: 30%;
 }
@@ -212,9 +224,79 @@ body,
 	background-color: white;
 	color: var(--color-primary);
 	margin-right: 15%;
-	text-align: right;
+	text-align: left;
 	font-size: 1.5rem;
 	border-radius: 25px;
 	padding: 0 0.5rem;
 	font-weight: 700;
+}
+
+.Login form,
+.Register form {
+	margin: 0 auto;
+}
+
+.Login p {
+	border-top: 2px dashed gray;
+	padding-top: 1.5rem;
+	margin: 1rem auto;
+	width: 70%;
+	position: relative;
+	text-align: center;
+	font-style: italic;
+	font-size: 14px;
+	color: #444;
+}
+.Login p::before {
+	position: absolute;
+	content: "or";
+	top: 0;
+	left: 50%;
+	transform: translateY(-60%) translateX(-50%);
+	padding: 0 0.5rem 0.15rem 0.5rem;
+	border-radius: 20px;
+	border: gray 1.5px dashed;
+	background-color: var(--color-secondary);
+	font-style: italic;
+	font-weight: 700;
+	font-size: 12px;
+	color: rgb(129, 110, 76);
+}
+.Login p a {
+	color: var(--color-primary);
+	font-weight: 700;
+	font-style: normal;
+	font-size: 16px;
+}
+
+/* SPINNER COMPONENT */
+.loadingSpinnerContainer {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 5000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loadingSpinner {
+	width: 64px;
+	height: 64px;
+	border: 8px solid;
+	border-color: #000 transparent #555 transparent;
+	border-radius: 50%;
+	animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

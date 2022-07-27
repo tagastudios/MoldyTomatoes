@@ -1,6 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout, reset } from "../features/auth/authSlice";
 
 const Header = () => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.auth);
+
+	const onLogout = () => {
+		dispatch(logout());
+		dispatch(reset());
+		navigate("/");
+	};
+
 	const isLoggedIn = false;
 	return (
 		<nav className="Header__nav container">
@@ -22,9 +34,11 @@ const Header = () => {
 				<h1>Moldy Tomatoes</h1>
 			</Link>
 			<ul>
-				{isLoggedIn ? (
+				{user ? (
 					<li>
-						<button className="btn btn-alt btn-nav">Log Out</button>
+						<button className="btn btn-alt btn-nav" onClick={onLogout}>
+							Log Out
+						</button>
 					</li>
 				) : (
 					<li>

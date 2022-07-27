@@ -1,18 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Table = () => {
-	const movies = [
-		{
-			id: "Finding Nemo",
-			title: "Finding Nemo",
-			avgRating: 3.5,
-		},
-		{
-			id: "Terminator",
-			title: "Terminator",
-			avgRating: 5,
-		},
-	];
+const Table = ({ movies }) => {
 	return (
 		<table className="Table">
 			<thead>
@@ -25,18 +13,18 @@ const Table = () => {
 			<tbody>
 				{movies &&
 					movies.length > 0 &&
-					movies.map((movie) => {
+					movies.map(({ _id: id, title, avgRating: rating, createdAt }) => {
 						return (
-							<tr key={movie.id}>
+							<tr key={id}>
 								<td>
-									<Link to={movie.id}>{movie.title}</Link>
+									<Link to={id}>{title}</Link>
 								</td>
-								<td className="ratings">{movie.avgRating}</td>
+								<td className="ratings">{rating ? rating.toFixed(2) : 0}</td>
 								<td className="actions">
-									<Link to={movie.id}>
+									<Link to={id}>
 										<button className="btn">Read Reviews</button>
 									</Link>
-									<Link to={`${movie.id}/review`}>
+									<Link to={`${id}/review`}>
 										<button className="btn">Write a Review</button>
 									</Link>
 								</td>
