@@ -49,7 +49,11 @@ const Reviews = () => {
 		<div className="container">
 			<h2>Reviews for {currentMovie.title}</h2>
 			{reviews && reviews.length > 0 ? (
-				<TableReviews reviews={reviews} deleteReview={deleteThisReview} />
+				<TableReviews
+					user={user}
+					reviews={reviews}
+					deleteReview={deleteThisReview}
+				/>
 			) : (
 				<p>Sorry, no movies at this time, try adding one instead or...</p>
 			)}

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Table = ({ movies }) => {
 	return (
-		<table className="Table">
+		<table className="Table Table_Movies">
 			<thead>
 				<tr>
 					<th>Movie Title</th>
