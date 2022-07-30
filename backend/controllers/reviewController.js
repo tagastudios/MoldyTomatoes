@@ -4,8 +4,8 @@ const Review = require("../models/reviewModel");
 const Movie = require("../models/movieModel");
 const User = require("../models/userModel");
 
-// @desc    Get goals
-// @route   GET /api/goals
+// @desc    Get review
+// @route   GET /api/reviews
 // @access  Private
 const getReviewsByMovieId = asyncHandler(async (req, res) => {
 	const reviews = await Review.find({ movieId: req.params.id }).populate(
@@ -15,8 +15,8 @@ const getReviewsByMovieId = asyncHandler(async (req, res) => {
 	res.status(200).json(reviews);
 });
 
-// @desc    Set goal
-// @route   POST /api/goals
+// @desc    Set review
+// @route   POST /api/reviews
 // @access  Private
 const setReview = asyncHandler(async (req, res) => {
 	if (!req.body.movieId) {
@@ -34,8 +34,8 @@ const setReview = asyncHandler(async (req, res) => {
 	res.status(200).json(review);
 });
 
-// @desc    Delete goal
-// @route   DELETE /api/goals/:id
+// @desc    Delete review
+// @route   DELETE /api/reviews/:id
 // @access  Private
 const deleteMovie = asyncHandler(async (req, res) => {
 	const review = await Review.findById(req.params.id);
@@ -51,7 +51,7 @@ const deleteMovie = asyncHandler(async (req, res) => {
 		throw new Error("User not found");
 	}
 
-	// Make sure the logged in user matches the goal user
+	// Make sure the logged in user matches the review user
 	if (review.createdBy.toString() !== req.user.id) {
 		res.status(401);
 		throw new Error("User not authorized");
