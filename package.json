@@ -1,7 +1,7 @@
 {
-	"name": "coding-dojo-movies",
+	"name": "moldy-tomatoes",
 	"version": "1.0.0",
-	"description": "Interview MERN Application",
+	"description": "Best place search movie reviews",
 	"main": "server.js",
 	"scripts": {
 		"start": "node backend/server.js",
