@@ -1,0 +1,6 @@
+#Backend Env
+
+NODE_ENV = development
+PORT = 4000
+MONGO_URI = mongodb+srv://YOURMONGOURI
+JWT_SECRET = abc123
